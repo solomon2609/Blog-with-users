@@ -11,10 +11,11 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
 from functools import wraps
 from sqlalchemy.ext.declarative import declarative_base
+import os
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b  "
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -147,8 +148,8 @@ def login():
 
 @app.route('/logout')
 def logout():
-    posts = BlogPost.query.all()
-    return render_template("index.html", all_posts=posts, current_user=False)
+    logout_user()
+    return redirect(url_for("get_all_posts"))
 
 
 @app.route("/post/<int:post_id>", methods=['POST', 'GET'])
