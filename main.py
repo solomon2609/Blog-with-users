@@ -45,7 +45,7 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(1000))
 
 
-db.create_all()
+# db.create_all()
 
 
 class BlogPost(db.Model):
@@ -61,7 +61,7 @@ class BlogPost(db.Model):
     img_url = db.Column(db.String(250), nullable=False)
 
 
-db.create_all()
+# db.create_all()
 
 
 class Comments(db.Model):
@@ -74,7 +74,7 @@ class Comments(db.Model):
     text = db.Column(db.Text, nullable=False)
 
 
-db.create_all()
+# db.create_all()
 
 gravatar = Gravatar(app,
                     size=100,
